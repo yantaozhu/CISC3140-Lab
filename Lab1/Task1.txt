@@ -1,0 +1,16 @@
+Lab 1 Task 1
+
+Terminal - Version 2.12 (443)
+Installation path: /System/Applications/Utilities/Terminal.app
+
+Git - Version 2.32.0 (Apple Git-132)
+Installation path: /opt/homebrew/bin/git
+
+Node JS - Version 16.17.0
+Installation path: /usr/local/bin/node
+
+NPM - Version 8.15.0
+Installation path: /usr/local/bin/npm
+
+Nano - Version 2.0.6
+Installation path: /usr/bin/nano

@@ -23,20 +23,22 @@ public class Part1 {
 		boolean acceptedInput;
 		long dayBetweenDates;
 
-		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in); //create a scanner
 
 		acceptedInput = false;
 		while(!acceptedInput) {
 			System.out.println("What is the starting date?");
 			System.out.println("(Pick from the list below or input a date in the form MM/DD/YYYY)");
 			System.out.println("Saved Date: Today, Lab1DueDate, Lab2DueDate, Lab3DueDate, Lab4DueDate, Quiz1Date, Quiz2Date, Quiz3Date, Quiz4Date, Quiz5Date, FinalDate");
+//prompt the user for input.
 			input = sc.nextLine();
 			try {
 				switch (input.toLowerCase()) {
+//check if the input is accepted, if not it will have an exception.
 					case "today":
-						startDate = today;
-						acceptedInput = true;
-						break;
+						startDate = today; //set today as the starting date if the input match the case string.
+						acceptedInput = true; //stop the while loop to happen again since we have a valid input.
+						break; //stop the switch
 					case "lab1duedate":
 						startDate = lab1DueDate;
                                                 acceptedInput = true;
@@ -78,13 +80,15 @@ public class Part1 {
                                                 acceptedInput = true;
                                                 break;
 					default:
-						startDate = LocalDate.parse(input, formatter);
+						startDate = LocalDate.parse(input, formatter); //convert the input to a date based on the formatter.
 						acceptedInput = true;
 				}
 			} catch (Exception e) {
+//happen when there are an exception
 				System.out.println("Unacceptable input. Try again.");
 			}
 		}
+//while loop runs again if there is an exception, else it will ask the ending date.
                 
 		acceptedInput = false;
                 while(!acceptedInput) {
@@ -148,11 +152,14 @@ public class Part1 {
                 }
 
 		dayBetweenDates = ChronoUnit.DAYS.between(startDate,endDate);
+//find the number of date between the first and second input, its negative if the second date is before first date.
 
 		if (dayBetweenDates > 0) {
+//run when the start date is before the end date.
 			System.out.println(endDate + " is " + dayBetweenDates + " days from " + startDate);
 		}
-		else {
+		else if (dayBetweenDates < 0) {
+//run when the end date is before the start date
 			dayBetweenDates = -dayBetweenDates;
 			System.out.println(endDate + " is " + dayBetweenDates + " days past " + startDate);
 		}
